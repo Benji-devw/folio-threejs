@@ -3,7 +3,6 @@ import { useEffect, useState } from "react"
 import { Image, useGLTF, Text, Html } from "@react-three/drei"
 
 
-
 function Video() {
   const [video] = useState(() => Object.assign(document.createElement('video'), { src: '/media/web/Desktop.mp4', crossOrigin: 'Anonymous', loop: true, muted: true }))
   useEffect(() => void video.play(), [video])
@@ -54,7 +53,7 @@ export function Web({position}) {
         <group key={id} position={data.pos}>
           <mesh scale={1.7} geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
           <Image url={data.src} alt="Picture" scale={[5, 3.4]} />
-          {/* <Text maxWidth={2} anchorX="left" anchorY="top" position={[0.55, .5, 0]} fontSize={1.025}>
+          {/* <Text maxWidth={1} anchorX="left" anchorY="top" position={[0, -2, 0]} fontSize={0.6}>
             {"test"}
           </Text> */}
         </group>

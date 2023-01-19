@@ -1,6 +1,7 @@
 import Head from 'next/head'
-// import styles from '@/styles/Home.module.css'
 import Display from './Display'
+import { Footer } from '@/components/Footer';
+
 
 export default function Home() {
   return (
@@ -15,6 +16,9 @@ export default function Home() {
       <main>
         <Display />
       </main>
+
+      <Footer />
+
     </>
   )
 }
