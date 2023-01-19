@@ -21,7 +21,7 @@ export function Web({position}) {
 
   const datas = [
     {src:"/media/web/aleph.jpg", pos:[4, 0, 3] },
-    {src:"/media/web/Stouflydoc-1.jpg", pos:[-4, 0, 3] },
+    {src:"/media/web/StouflyDocPreview.jpg", pos:[-4, 0, 3] },
     {src:"/media/web/vallena.png", pos:[0, 3, -8] },
     {src:"/media/web/speedo.jpg", pos:[0, -3, -8] },
     {src:"/media/web/Aquapulse.jpg", pos:[4, 0, -18] },
