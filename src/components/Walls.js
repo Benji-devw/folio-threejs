@@ -1,24 +1,29 @@
-import {  useGLTF } from "@react-three/drei"
+import {  useGLTF, useScroll } from "@react-three/drei"
+import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
-// import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 
-
-export function Walls() {
+export function Walls({position, scrollSet}) {
 
   const group = useRef()
-  // const model = useLoader(GLTFLoader, '/models/Folio_Walls.glb')
-  const {nodes, materials} = useGLTF('/models/Folio_Walls.glb')
-
-  // console.log(nodes);
+  const {nodes, materials} = useGLTF('/models/Folio_Back.glb')
+  console.log(nodes);
   // console.log(materials);
+  
+  const meshRefOne = useRef()
+  const scroll = useScroll()
+  useFrame(() => (
+    meshRefOne.current.position.z = scroll.offset * 65
+    ))
+
   return (
-    <>
-      <group ref={group} dispose={null} position={[0, -2, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
-      {/* <primitive  object={model.scene} position={[0, 0, -3]} rotation={[0, -Math.PI * 0.5, 0]} scale={1} /> */}
-        <mesh geometry={nodes.Panel_Name.geometry} material={materials.Mat_panel} />
-        <mesh geometry={nodes.Panel_Title.geometry} material={materials.Mat_panel} />
-        <mesh geometry={nodes.Back.geometry} material={materials.Mat_panel} />
-        </group>
-    </>
+    <group ref={group} dispose={null} position={position} rotation={[0, -Math.PI * 0.5, 0]}>
+      <mesh geometry={nodes.Back.geometry} material={materials.Mat_panel} />
+      <mesh ref={meshRefOne} geometry={nodes.Back_One.geometry} material={materials.Mat_panel} />
+      <mesh geometry={nodes.Back_Two.geometry} material={materials.Mat_panel} />
+      <mesh geometry={nodes.Back_Three.geometry} material={materials.Mat_Orange} />
+      <mesh geometry={nodes.Back_Four.geometry} material={materials.Mat_Orange} />
+      <mesh  geometry={nodes.Back_Five.geometry} material={materials.Mat_Orange} />
+      <mesh geometry={nodes.Back_Six.geometry} material={materials.Mat_Orange} />
+    </group>
   )
 }

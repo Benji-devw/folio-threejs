@@ -1,17 +1,17 @@
 import { Center, Text3D, useMatcapTexture } from "@react-three/drei"
-import { Text3DSettings } from '@/components/text/Leva'
+import { Text3DSettings } from '@/components/Leva'
 import { useState } from "react"
 
-export function TextXD({name, position}) {
+export function TextXD({name, position, rotation, size}) {
 
-  const {fonts, matcaps, size, textWireframe, height, bevelEnable, bevelThickness, bevelSize, bevelOffset, bevelSegments} = Text3DSettings()
+  const {fonts, matcaps, letterSpacing, height, bevelEnable, bevelThickness, bevelSize, bevelOffset, bevelSegments} = Text3DSettings()
   const [textMatcapTexture] = useMatcapTexture(matcaps, 256)
   const [textMaterial, setTextMaterial] = useState()
 
   return (
     <>
       <meshMatcapMaterial ref={setTextMaterial} matcap={textMatcapTexture} />
-      <Center position={position}>
+      <Center position={position} rotation={rotation} >
         <Text3D
         material={textMaterial}
         font={`./fonts/${fonts}`}
@@ -22,7 +22,7 @@ export function TextXD({name, position}) {
         bevelSize={bevelSize}
         bevelOffset={bevelOffset}
         bevelSegments={bevelSegments}
-        wireframe={textWireframe}
+        letterSpacing={letterSpacing}
         >
           {name}
         </Text3D>
