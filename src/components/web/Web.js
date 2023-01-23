@@ -20,12 +20,12 @@ export function Web({position}) {
   const {nodes, materials} = useGLTF('/models/Folio_Cadre.glb')
 
   const datas = [
-    {src:"/media/web/aleph.jpg", pos:[4, 0, 3] },
-    {src:"/media/web/StouflyDocPreview.jpg", pos:[-4, 0, 3] },
-    {src:"/media/web/vallena.png", pos:[0, 3, -8] },
-    {src:"/media/web/speedo.jpg", pos:[0, -3, -8] },
-    {src:"/media/web/Aquapulse.jpg", pos:[4, 0, -18] },
-    {src:"/media/web/ffmi.jpg", pos:[-4, 0, -18] },
+    {src:"/media/web/aleph.jpg", pos:[4, 0, 3], desc:"Contribution au projet Aleph Ecriture - WordPress / PHP / CSS / JavaScript" },
+    {src:"/media/web/StouflyDocPreview.jpg", pos:[-4, 0, 3], desc:"Projet StouflyDoc 'en développement', gestion et partage de tracks et de samples (Musique, FL Studio ...) - NextJs / Sass / Epress / NodeJs / MongoDB / Tailwind" },
+    {src:"/media/web/vallena.png", pos:[4, 0, -10], desc:"Projet Vallena 'en développement', plateforme e-commerce et gestion des stocks dynamique pour couturiers de France - React / Redux / Sass / Bootstrap / Epress / NodeJs / MongoDB / Paypal / StripeJS" },
+    {src:"/media/web/speedo.jpg", pos:[-4, 0, -10], desc:"Intégration design page promotionnel, maillots de bain Femme par Speedo (Decathlon)" },
+    {src:"/media/web/Aquapulse.jpg", pos:[4, 0, -23], desc:"Intégration design page promotionnel, lunettes de piscine par Aquapulse Pro Mirror (Decathlon)" },
+    {src:"/media/web/ffmi.jpg", pos:[-4, 0, -23], desc:"Contribution au projet FFMI - WordPress / PHP / CSS / JavaScript" },
   ]
   
   return (
@@ -48,14 +48,13 @@ export function Web({position}) {
         </primitive>
       </group> */}
 
-
       { datas.map((data,id) => 
         <group key={id} position={data.pos}>
           <mesh scale={1.7} geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
           <Image url={data.src} alt="Picture" scale={[5, 3.4]} />
-          {/* <Text maxWidth={1} anchorX="left" anchorY="top" position={[0, -2, 0]} fontSize={0.6}>
-            {"test"}
-          </Text> */}
+          <Text color={"#b1201f"} maxWidth={5} fontSize={0.15} anchorX="left" anchorY="top" position={[-2.6, -2, 0]}>
+            {data.desc}
+          </Text>
         </group>
       )}
     </>

@@ -1,6 +1,4 @@
-import * as THREE from 'three'
-import { useEffect, useState } from "react"
-import { Image, useGLTF } from "@react-three/drei"
+import { Image } from "@react-three/drei"
 
 
 export function Logos({position}) {

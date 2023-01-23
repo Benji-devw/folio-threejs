@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useRouter } from 'next/router';
 import { Contact } from "./Contact";
 
-
 export function Footer() {
   const router = useRouter();
 
@@ -28,7 +27,7 @@ export function Footer() {
       </a>
     </div>
 
-  <div><span>2022</span></div>
+  <div><span>2023</span></div>
 </div>
   )
 }

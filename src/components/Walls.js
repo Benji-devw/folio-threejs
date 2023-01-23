@@ -1,13 +1,11 @@
-import {  useGLTF, useScroll } from "@react-three/drei"
+import { useGLTF, useScroll } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 
-export function Walls({position, rotation}) {
+export function Walls() {
 
   const group = useRef()
   const {nodes, materials} = useGLTF('/models/Folio_Back.glb')
-  console.log(nodes);
-  // console.log(materials);
   
   const meshRefOne = useRef()
   const meshRefTwo = useRef()
@@ -18,11 +16,11 @@ export function Walls({position, rotation}) {
     })
 
   return (
-    <group ref={group} dispose={null} position={position} rotation={rotation}>
+    <group ref={group} dispose={null}>
       <mesh geometry={nodes.Back.geometry} material={materials.Mat_panel} />
       <mesh ref={meshRefOne} geometry={nodes.Back_One.geometry} material={materials.Mat_panel} />
       <mesh ref={meshRefTwo} geometry={nodes.Back_Two.geometry} material={materials.Mat_panel} />
-      <mesh geometry={nodes.Back_Three.geometry} material={materials.Mat_Orange} />
+      {/* <mesh geometry={nodes.Back_Three.geometry} material={materials.Mat_Orange} /> */}
       <mesh geometry={nodes.Back_Four.geometry} material={materials.Mat_Orange} />
       <mesh  geometry={nodes.Back_Five.geometry} material={materials.Mat_Orange} />
       <mesh geometry={nodes.Back_Six.geometry} material={materials.Mat_Orange} />

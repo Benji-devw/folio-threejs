@@ -6,7 +6,7 @@ export function Effects() {
   return (
     <EffectComposer>
       {/* <DepthOfField focalLength={focalLength} focusRange={focusRange} focusDistance={focusDistance} bokehScale={bokehScale} /> */}
-      <DepthOfField focusRange={0.02} focusDistance={0.01} focalLength={0.02}  bokehScale={6} />
+      <DepthOfField focusRange={0.02} focusDistance={0.01}  bokehScale={4} />
       <Bloom luminanceThreshold={1} intensity={1} mipmapBlur />
     </EffectComposer>
   )

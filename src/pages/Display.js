@@ -1,11 +1,11 @@
 import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { Html, Stats, OrbitControls, ScrollControls, useScroll, useHelper, Grid, Environment, CameraShake } from '@react-three/drei'
+import { Stats, ScrollControls, useScroll, Environment, axesHelper } from '@react-three/drei'
 import { Leva } from 'leva'
 import { Walls } from '@/components/Walls'
 import { Suspense, useRef } from 'react'
 import * as THREE from 'three'
 import { TextXD } from '@/components/text/TextXD'
-import { TextPanel } from '@/components/text/TextPanel'
+// import { TextPanel } from '@/components/text/TextPanel'
 import { Illustrations } from '@/components/Illustrations'
 import { FrameText } from '@/components/frameText/FrameText'
 import { Web } from '@/components/web/Web'
@@ -37,7 +37,7 @@ function Scene() {
       <pointLight position={[100, 100, 100]} intensity={.5} />
 
       <group rotation={[0, -Math.PI * 0.5, 0]}>
-        <Walls position={[0, 0, 0]} rotation={[0, 0, 0]}/>
+        <Walls/>
         <FrameText position={[1.2, -2.5, 0]} scale={1} color={[1.5 /2, 2 /2, 4 /2]}   />
         <TextXD name='Benjamin' position={[0, .9, 0]} size={[.5]} />
         <TextXD name='Navarro' position={[0, 0, -3]} size={[.5]} />
@@ -52,21 +52,21 @@ function Scene() {
       </group>
       
       <group position={[65, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
-        <Walls position={[0, 0, 0]} rotation={[0, 0, 0]}/>
+        <Walls/>
         <FrameText position={[0, -3, 10]} scale={.5} color={[1.5 /2, 2 /2, 4 /2]}  />
         <TextXD name='Web' position={[0, -1.5, 10]} size={[.4]}  />
         <Web position={[-2, 0, 0]}/>
       </group>      
       
       <group position={[110, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
-        <Walls position={[0, 0, 0]} rotation={[0, 0, 0]}/>
+        <Walls/>
         <FrameText position={[0, -2, 7]} scale={.5} color={[1.5 /2, 2 /2, 4 /2]}  />
         <TextXD name='Logos' position={[0, -0.6, 7]} size={[.4]}  />
         <Logos position={[-2, 0, 0]}/>
       </group>      
       
       <group position={[150, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
-        <Walls position={[0, 0, 0]} rotation={[0, 0, 0]}/>
+        <Walls/>
         <FrameText position={[0, -2, 7]} scale={.5} color={[1.5 /2, 2 /2, 4 /2]}  />
         <TextXD name='3D' position={[0, -0.6, 7]} size={[.4]}  />
         <Infographie position={[0, 0, 3]}/>
