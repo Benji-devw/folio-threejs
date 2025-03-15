@@ -85,8 +85,8 @@ export default function Display() {
       <Stats showPanel={0} className="statsFps"/>
 
       <Canvas className='webgl' dpr={[1, 1.5]} gl={{ alpha: false }} shadows camera={{ fov: 45, near: 0.1,position: [ -8, 1, 0 ]}}>
-        {/* <color attach="background" args={['#8C8C8C']} /> */}
-        <Environment background preset={envmapping }blur={0.8} />
+        <color attach="background" args={['#8C8C8C']} />
+        {/* <Environment preset="sunset" background={false} blur={0.8} /> */}
         <directionalLight castShadow intensity={.2} position={[-8, 0, 0]}  >
           <orthographicCamera attach="shadow-camera" left={-10} right={10} top={10} bottom={10} />
         </directionalLight>
