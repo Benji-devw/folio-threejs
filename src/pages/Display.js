@@ -41,7 +41,7 @@ function Scene() {
         <FrameText position={[1.2, -2.5, 0]} scale={1} color={[1.5 /2, 2 /2, 4 /2]}   />
         <TextXD name='Benjamin' position={[0, .9, 0]} size={[.5]} />
         <TextXD name='Navarro' position={[0, 0, -3]} size={[.5]} />
-        <TextXD name='Porfolio' position={[0, -1, -4]} size={[.4]} />
+        <TextXD name='Gallerie' position={[0, -1, -4]} size={[.4]} />
       </group>
 
       <group position={[30, 0, -7]} rotation={[0, -Math.PI * 0.5, 0]}>
@@ -58,12 +58,12 @@ function Scene() {
         <Web position={[-2, 0, 0]}/>
       </group>      
       
-      {/* <group position={[110, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
+      <group position={[110, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
         <Walls/>
         <FrameText position={[0, -2, 7]} scale={.5} color={[1.5 /2, 2 /2, 4 /2]}  />
         <TextXD name='Logos' position={[0, -0.6, 7]} size={[.4]}  />
         <Logos position={[-2, 0, 0]}/>
-      </group>       */}
+      </group>      
       
       <group position={[150, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
         <Walls/>
@@ -78,14 +78,13 @@ function Scene() {
 
 
 export default function Display() {
-  const {envmapping} = EnvMappingSettings()
   return (
     <>
       <Leva collapsed/>
       <Stats showPanel={0} className="statsFps"/>
 
-      <Canvas className='webgl' dpr={[1, 1.5]} gl={{ alpha: false }} shadows camera={{ fov: 45, near: 0.1,position: [ -8, 1, 0 ]}}>
-        <color attach="background" args={['#8C8C8C']} />
+      <Canvas className='webgl' dpr={[11, 1.5]} gl={{ alpha: false }} shadows camera={{ fov: 45, near: 0.1,position: [ -8, 1, 0 ]}}>
+        <color attach="background" args={['#111']} />
         {/* <Environment preset="sunset" background={false} blur={0.8} /> */}
         <directionalLight castShadow intensity={.2} position={[-8, 0, 0]}  >
           <orthographicCamera attach="shadow-camera" left={-10} right={10} top={10} bottom={10} />
