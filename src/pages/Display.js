@@ -58,12 +58,12 @@ function Scene() {
         <Web position={[-2, 0, 0]}/>
       </group>      
       
-      <group position={[110, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
+      {/* <group position={[110, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
         <Walls/>
         <FrameText position={[0, -2, 7]} scale={.5} color={[1.5 /2, 2 /2, 4 /2]}  />
         <TextXD name='Logos' position={[0, -0.6, 7]} size={[.4]}  />
         <Logos position={[-2, 0, 0]}/>
-      </group>      
+      </group>       */}
       
       <group position={[150, 0, 0]} rotation={[0, -Math.PI * 0.5, 0]}>
         <Walls/>

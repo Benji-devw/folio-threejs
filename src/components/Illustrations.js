@@ -1,4 +1,6 @@
 import {Image, useGLTF } from "@react-three/drei"
+import { useRef } from "react"
+import { useHoverEffect } from "./HoverEffect"
 
 export function Illustrations() {
 
@@ -16,11 +18,18 @@ export function Illustrations() {
   ]
 
   return (
-    datas.map((data,id) => 
-      <group key={id} position={data.pos}>
-        <mesh geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
-        <Image url={data.src} alt="Picture" scale={[3, 2]} />
-      </group>
-    )
+    datas.map((data,id) => {
+      // Créer une référence pour chaque groupe
+      const groupRef = useRef()
+      // Utiliser le hook pour l'effet de hover
+      const { hoverProps } = useHoverEffect(groupRef, 1.15)
+      
+      return (
+        <group key={id} position={data.pos} ref={groupRef} {...hoverProps}>
+          <mesh geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
+          <Image url={data.src} alt="Picture" scale={[3, 2]} />
+        </group>
+      )
+    })
   )
 }

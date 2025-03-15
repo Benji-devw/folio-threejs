@@ -1,6 +1,7 @@
 import * as THREE from 'three'
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import { Image, useGLTF, Text, Html } from "@react-three/drei"
+import { useHoverEffect } from "../HoverEffect"
 
 
 function Video() {
@@ -48,15 +49,22 @@ export function Web({position}) {
         </primitive>
       </group> */}
 
-      { datas.map((data,id) => 
-        <group key={id} position={data.pos}>
-          <mesh scale={1.7} geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
-          <Image url={data.src} alt="Picture" scale={[5, 3.4]} />
-          <Text color={"#b1201f"} maxWidth={5} fontSize={0.15} anchorX="left" anchorY="top" position={[-2.6, -2, 0]}>
-            {data.desc}
-          </Text>
-        </group>
-      )}
+      { datas.map((data,id) => {
+        // Créer une référence pour chaque groupe
+        const groupRef = useRef()
+        // Utiliser le hook pour l'effet de hover
+        const { hoverProps } = useHoverEffect(groupRef, 1.15)
+        
+        return (
+          <group key={id} position={data.pos} ref={groupRef} {...hoverProps}>
+            <mesh scale={1.7} geometry={nodes.Cadre.geometry} material={materials.Mat_Polys} rotation={[0, -Math.PI * 0.5, 0]} />
+            <Image url={data.src} alt="Picture" scale={[5, 3.4]} />
+            <Text color={"#b1201f"} maxWidth={5} fontSize={0.15} anchorX="left" anchorY="top" position={[-2.6, -2, 0]}>
+              {data.desc}
+            </Text>
+          </group>
+        )
+      })}
     </>
   )
 }
